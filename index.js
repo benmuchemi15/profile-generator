@@ -22,6 +22,12 @@ const newManager = () => {
     name:'email',
     question: 'What is the manager email?',
     }
+
+    .then((answers) => {
+        //use user feedback
+        const {name, id, email, officeNumber } = answers;
+        const manager = new Manager (name, id, email, officeNumber);
+    })
 };
 
 
@@ -29,9 +35,7 @@ const newManager = () => {
 
 
 newManager()
-.then((answers) => {
-    //use user feedback
-})
+
 .catch((error) => {
     if(error.isTtyError) {
 
